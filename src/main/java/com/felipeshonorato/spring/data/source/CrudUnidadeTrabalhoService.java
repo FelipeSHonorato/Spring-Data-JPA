@@ -19,7 +19,7 @@ public class CrudUnidadeTrabalhoService {
     public void inicial (Scanner scanner){
         while (system) {
             System.out.println("Qual ação de cargo deseja executar?");
-            System.out.println("0 - Sair de Unidades de Trabalho");
+            System.out.println("0 - Voltar ao Menu Principal");
             System.out.println("1 - Criar Nova Unidade de Trabalho");
             System.out.println("2 - Modificar Unidade de Trabalho");
             System.out.println("3 - Visualizar Unidades de Trabalho");
@@ -45,9 +45,7 @@ public class CrudUnidadeTrabalhoService {
                     system = false;
                     break;
             }
-
         }
-        salvar(scanner);
     }
 
     private void salvar(Scanner scanner){

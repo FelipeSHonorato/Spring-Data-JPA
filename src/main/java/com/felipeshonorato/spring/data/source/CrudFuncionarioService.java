@@ -32,7 +32,7 @@ public class CrudFuncionarioService {
     public void inicial (Scanner scanner) {
         while (system) {
             System.out.println("Qual ação de funcionarios deseja executar?");
-            System.out.println("0 - Sair de Funcionários");
+            System.out.println("0 - Voltar ao Menu Principal");
             System.out.println("1 - Criar Novo Funcionário");
             System.out.println("2 - Modificar Funcionário");
             System.out.println("3 - Visualizar Funcionários");
@@ -58,9 +58,7 @@ public class CrudFuncionarioService {
                     system = false;
                     break;
             }
-
         }
-        salvar(scanner);
     }
 
     private void salvar(Scanner scanner)  {

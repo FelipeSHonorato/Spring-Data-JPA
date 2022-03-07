@@ -32,7 +32,7 @@ public class SpringDataApplication implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) {
 
 		Scanner scanner = new Scanner(System.in);
 

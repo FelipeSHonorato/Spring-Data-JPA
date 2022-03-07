@@ -20,6 +20,7 @@ public class CrudCargoService {
     public void inicial (Scanner scanner) {
         while (system) {
             System.out.println("Qual ação de cargo deseja executar?");
+            System.out.println("0 - Voltar ao Menu Principal");
             System.out.println("1 - Criar Novo Cargo");
             System.out.println("2 - Modificar Cargo");
             System.out.println("3 - Visualizar Cargos");
@@ -45,9 +46,7 @@ public class CrudCargoService {
                     system = false;
                     break;
             }
-
         }
-        salvar(scanner);
     }
 
     private void salvar(Scanner scanner){
