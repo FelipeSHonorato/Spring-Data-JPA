@@ -1,6 +1,5 @@
 package com.felipeshonorato.spring.data.source;
 
-import com.felipeshonorato.spring.data.SpringDataApplication;
 import com.felipeshonorato.spring.data.orm.Cargo;
 import com.felipeshonorato.spring.data.repository.CargoRepository;
 import org.springframework.stereotype.Service;
@@ -15,12 +14,12 @@ public class CrudCargoService {
 
     public CrudCargoService(CargoRepository cargoRepository){
         this.cargoRepository = cargoRepository;
+
     }
 
-    public void inicial (Scanner scanner){
+    public void inicial (Scanner scanner) {
         while (system) {
             System.out.println("Qual ação de cargo deseja executar?");
-            System.out.println("0 - Sair de Cargos");
             System.out.println("1 - Criar Novo Cargo");
             System.out.println("2 - Modificar Cargo");
             System.out.println("3 - Visualizar Cargos");
@@ -29,8 +28,6 @@ public class CrudCargoService {
             int action = scanner.nextInt();
 
             switch (action){
-                case 0:
-                    break;
                 case 1:
                     salvar(scanner);
                     break;
