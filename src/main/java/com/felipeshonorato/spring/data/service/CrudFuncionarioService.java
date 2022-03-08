@@ -6,6 +6,10 @@ import com.felipeshonorato.spring.data.orm.UnidadeTrabalho;
 import com.felipeshonorato.spring.data.repository.CargoRepository;
 import com.felipeshonorato.spring.data.repository.FuncionarioRepository;
 import com.felipeshonorato.spring.data.repository.UnidadeTrabalhoRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -36,7 +40,8 @@ public class CrudFuncionarioService {
             System.out.println("1 - Criar Novo Funcionário");
             System.out.println("2 - Modificar Funcionário");
             System.out.println("3 - Visualizar Funcionários");
-            System.out.println("4 - Deletar Funcionário");
+            System.out.println("4 - Visualizar Paginado");
+            System.out.println("5 - Deletar Funcionário");
 
             int action = scanner.nextInt();
 
@@ -51,9 +56,11 @@ public class CrudFuncionarioService {
                     visualizar();
                     break;
                 case 4:
+                    visualizarPaginado(scanner);
+                    break;
+                case 5:
                     deletar(scanner);
                     break;
-
                 default:
                     system = false;
                     break;
@@ -144,6 +151,23 @@ public class CrudFuncionarioService {
 
     private void visualizar (){
         Iterable<Funcionario> funcionarios = funcionarioRepository.findAll();
+        funcionarios.forEach(funcionario -> System.out.println(funcionario));
+    }
+
+    private void visualizarPaginado (Scanner scanner){
+        System.out.println("Qual página você deseja visualizar?");
+        Integer page = scanner.nextInt();
+
+        Pageable pageable = PageRequest.of(page, 5, Sort.by(Sort.Direction.DESC, "nome"));
+                //Sort.unsorted() = Ordenação padrão, por ID
+                //Sort.by(Sort.Direction.DESC, "nome" = Ordenação DECRESCENTE através do atributo nome
+
+        Page<Funcionario> funcionarios = funcionarioRepository.findAll(pageable);
+
+        System.out.println(funcionarios);
+        System.out.println("Página atual " + funcionarios.getNumber());
+        System.out.println("Total de elementos " + funcionarios.getTotalElements());
+
         funcionarios.forEach(funcionario -> System.out.println(funcionario));
     }
 
