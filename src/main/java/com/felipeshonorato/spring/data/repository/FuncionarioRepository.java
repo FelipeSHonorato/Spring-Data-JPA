@@ -39,5 +39,11 @@ public interface FuncionarioRepository extends CrudRepository<Funcionario, Integ
      *  Que é a mesma coisa que a query abaixo:
      *
      * @Query("SELECT f FROM Funcionario f JOIN f.unidadeTrabalho u WHERE u.descricao = :descricao")
+     *
+     * Podemos também fazer uma Query utilizando a linguagem nativa do Banco de Dados, no caso MariaDB, para isso devemos efetuar o @Query da seguinte maneira:
      * **/
+
+    @Query(value = "SELECT * FROM funcionarios f WHERE f.data_contratacao >= :data", nativeQuery = true)
+    List<Funcionario> findDataContratacaoMaior(LocalDate data);
+
 }
