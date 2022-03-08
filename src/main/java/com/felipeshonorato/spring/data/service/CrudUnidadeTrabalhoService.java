@@ -1,4 +1,4 @@
-package com.felipeshonorato.spring.data.source;
+package com.felipeshonorato.spring.data.service;
 
 import com.felipeshonorato.spring.data.orm.UnidadeTrabalho;
 import com.felipeshonorato.spring.data.repository.UnidadeTrabalhoRepository;

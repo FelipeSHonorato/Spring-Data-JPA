@@ -1,4 +1,4 @@
-package com.felipeshonorato.spring.data.source;
+package com.felipeshonorato.spring.data.service;
 
 import com.felipeshonorato.spring.data.orm.Cargo;
 import com.felipeshonorato.spring.data.orm.Funcionario;
@@ -153,5 +153,4 @@ public class CrudFuncionarioService {
         funcionarioRepository.deleteById(id);
         System.out.println("Funcionário deletado");
     }
-
 }

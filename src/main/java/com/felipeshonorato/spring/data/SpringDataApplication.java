@@ -1,8 +1,9 @@
 package com.felipeshonorato.spring.data;
 
-import com.felipeshonorato.spring.data.source.CrudCargoService;
-import com.felipeshonorato.spring.data.source.CrudFuncionarioService;
-import com.felipeshonorato.spring.data.source.CrudUnidadeTrabalhoService;
+import com.felipeshonorato.spring.data.service.CrudCargoService;
+import com.felipeshonorato.spring.data.service.CrudFuncionarioService;
+import com.felipeshonorato.spring.data.service.CrudUnidadeTrabalhoService;
+import com.felipeshonorato.spring.data.service.RelatoriosService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,11 +20,13 @@ public class SpringDataApplication implements CommandLineRunner {
 	private final CrudCargoService cargoService;
 	private final CrudFuncionarioService funcionarioService;
 	private final CrudUnidadeTrabalhoService unidadeTrabalhoService;
+	private final RelatoriosService relatoriosService;
 
-	public  SpringDataApplication(CrudCargoService cargoService, CrudFuncionarioService funcionarioService, CrudUnidadeTrabalhoService unidadeTrabalhoService){
+	public  SpringDataApplication(CrudCargoService cargoService, CrudFuncionarioService funcionarioService, CrudUnidadeTrabalhoService unidadeTrabalhoService, RelatoriosService relatoriosService){
 		this.cargoService = cargoService;
 		this.funcionarioService = funcionarioService;
 		this.unidadeTrabalhoService = unidadeTrabalhoService;
+		this.relatoriosService = relatoriosService;
 	}
 
 	public static void main(String[] args) {
@@ -42,6 +45,7 @@ public class SpringDataApplication implements CommandLineRunner {
 			System.out.println("1 - Opções para Cargos");
 			System.out.println("2 - Opções para Funcionários");
 			System.out.println("3 - Opções para Unidades de Trabalho");
+			System.out.println("4 - Consulta por relatórios");
 
 			Integer function = scanner.nextInt();
 
@@ -54,6 +58,9 @@ public class SpringDataApplication implements CommandLineRunner {
 					break;
 				case 3:
 					unidadeTrabalhoService.inicial(scanner);
+					break;
+				case 4:
+					relatoriosService.inicial(scanner);
 					break;
 				default:
 					System.out.println("Programa Finalizado");
