@@ -2,6 +2,7 @@ package com.felipeshonorato.spring.data.repository;
 
 import com.felipeshonorato.spring.data.orm.Funcionario;
 import com.felipeshonorato.spring.data.orm.FuncionarioProjecao;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
@@ -11,7 +12,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public interface FuncionarioRepository extends PagingAndSortingRepository<Funcionario, Integer> {
+public interface FuncionarioRepository extends PagingAndSortingRepository<Funcionario, Integer>, JpaSpecificationExecutor<Funcionario> {
+//Aplicado a Interface as extensões PagingAnd... para efetuar consultas paginadas ao sistema e JpaSpeci.... para executar consultas com criteria
 
     List<Funcionario> findByNome(String nome);
 
